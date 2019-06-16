@@ -1,16 +1,18 @@
 // dependencies 
 const express= require('express');
 const app = express();
-const PORT = process.env.PORT || 8080
+const mongoose=require("mongoose")
+const PORT = process.env.PORT || 8080;
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
 
 // mongoDB database setup
-const mongoose=require("mongoose")
-const mongoURL=process.env.PROD.MONGODB || "mongodb:localhost:27017/icebooks";
 
-mongoose.connect(mongoURL, {useNewUrlParser:true})
+
+// const mongoURI=process.env.MONGODB || "mongodb://localhost/icebooks";
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/icebooks", {useNewUrlParser:true})
 .then(()=>console.log("successfuly connected to database"))
 .catch((err)=>console.log(`Error connecting to database ${err}`))
 
