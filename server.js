@@ -14,5 +14,5 @@ mongoose.connect(mongoURL, {useNewUrlParser:true})
 .then(()=>console.log("successfuly connected to database"))
 .catch((err)=>console.log(`Error connecting to database ${err}`))
 
-require("./routes/api-routes")(app)
+require("./routes/api-routes.js")(app)
 app.listen(PORT,()=>console.log(`server running on port : ${PORT}`))
