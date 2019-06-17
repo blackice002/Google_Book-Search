@@ -13,6 +13,7 @@ constructor(props){
     this.handleChange=this.handleChange.bind(this)
     this.handleSearch= this.handleSearch.bind(this)
 }
+
 handleChange(e){
     e.preventDefault();
     this.setState({
@@ -29,10 +30,10 @@ this.setState({bookInput:""})
 
 };
 
-
     render() {
         return (
-            <div>
+            <main>
+            <div> Hello world</div>
                 <SearchForm 
                     handleChange={this.handleChange}
                     handleSearch={this.handleSearch}
@@ -44,7 +45,7 @@ this.setState({bookInput:""})
                 path={this.props.match.path} />
                 :null
                 }
-            </div>
+            </main>
         )
     }
 }

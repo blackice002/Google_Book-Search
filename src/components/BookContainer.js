@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Bookresult from '../components/Bookresult'
 
 
@@ -11,7 +11,7 @@ const BookContainer = (props) => {
                 const bookInfo = book.volumeInfo;
                 return(
                     <Bookresult
-                    title={bookInfo.title}
+                        title={bookInfo.title}
                         key={book._id}
                         authors={bookInfo.authors}
                         description={bookInfo.discription}

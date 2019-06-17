@@ -4,10 +4,10 @@ export default{
     getbooks:()=>{
         return axios.get("/api/books")
     },
-    searchBooks:()=>{
+    searchBooks:(title)=>{
         return axios.post('/search',{title:title})
     },
-    addBook:()=>{
+    addBook:(bookData)=>{
         return axios.post('/api/books',bookData);
     },
     deleteBook:(id)=>{

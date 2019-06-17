@@ -2,9 +2,9 @@ import React from 'react'
 
 const SearchFrom =(props)=>{
 return(
-    <div>
+    <div className="searchContainer">
     <h4> Book Search</h4>
-    <from >
+    <from id="booksearch" >
         <label htmlFor="bookInput" from="bookSearch"> Enter a book to search</label>
         <input
             type='text'
