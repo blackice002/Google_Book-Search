@@ -13,9 +13,9 @@ app.get('/api/books',(req,res)=>{
 // route to fetch book from google an post ne books from googlebook api with search parameters
 app.post('/search',(req,res)=>{
     
-     const GBOOKS_KEY=AIzaSyBPCjX3rX1tumtGB5v4mvQ_LCeCav50JLY;
-    let booktitle = req.body.title.replace(/\s/g,"+");
-    axios.get(`http://www.googleapis.com/books/v1/volumes?q=${booktitle}&key=${GBOOKS_KEY}`)
+    //  const GBOOKS_KEY=AIzaSyBPCjX3rX1tumtGB5v4mvQ_LCeCav50JLY;
+    let bookTitle = req.body.title.replace(/\s/g,"+");
+    axios.get(`http://www.googleapis.com/books/v1/volumes?q=${bookTitle}&key=${process.env.GBOOKS_KEY}`)
     .then(searchBook=>res.json(searchBook.data.items))
     .catch(err=>console.log(err))
 })
@@ -33,6 +33,9 @@ app.delete("/api/books/:id",(req,res)=>{
     .then(bookDeleted=>res.json(bookDeleted))
     .catch(err=>console.log(err))
 })
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 // **
 }
